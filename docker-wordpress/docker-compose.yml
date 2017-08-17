@@ -1,0 +1,39 @@
+
+version: '3'
+
+services:
+
+  nginx-proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # use dir as a default web root
+      - "./html:/usr/share/nginx/html"
+      # use external nginx default configuration file
+      - "./config/default.conf:/etc/nginx/conf.d/default.conf"
+    container_name: nginx-proxy
+    links:
+      - phpfpm:php
+      - mysql
+
+  phpfpm:
+    build:
+      context: './config'
+      dockerfile: './php.config'
+    image: php:7.1-fpm-alpine-wordpress
+    volumes:
+      - "./html:/usr/share/nginx/html"
+    container_name: phpfpm
+
+  mysql:
+    image: mariadb:latest
+    volumes:
+      - "./databases:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_USER: 'example'
+      MYSQL_PASSWORD: 'example'
+      MYSQL_DATABASE: 'example'
+      MYSQL_ROOT_PASSWORD: 'example'
+    container_name: mysql

@@ -1,0 +1,24 @@
+# ignore all files starting with .
+.*
+
+# unignore files starting with .
+!.gitignore
+!.gitattributes
+
+# ignore all files that start or end with ~
+~*
+*~
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
