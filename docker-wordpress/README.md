@@ -27,7 +27,7 @@
     UPDATE wp_postmeta SET \
     meta_value = replace(meta_value,'https://secure.production', 'https://notsecure.dev');" >> database.bak.sql
     ```
-4. Import database dump `mysql -ppass -user < database.bak.sql`
+4. Import prepared database dump by placing it inside the `databases` directory. [MariaDB](https://hub.docker.com/_/mariadb/) will import them on startup.
 5. Create wp-config
     - name the database the same as production database, change it in `docker-compose.yml`
     - use `example` in other fields
