@@ -1,0 +1,46 @@
+$root-font-size: 24;
+$input-font-size: 18;
+
+// px to em
+@function em($pixels, $context: $root-font-size) {
+  @return ($pixels / $context) * 1em;
+}
+
+$font-family: "Roboto", helvetica, arial, sans-serif;
+$heading-font-family: "Roboto", helvetica, arial, sans-serif;
+
+$black: #000;
+$grey: #666;
+$white: #fff;
+
+// animation
+$default-easing: cubic-bezier(.38, .15, .45, .89);
+$default-timing: .3s;
+
+// box-sizing ftw...
+html {
+  box-sizing: border-box;
+}
+
+// ...but inherit box-sizing from parent element just in case
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: #{$root-font-size}px;
+  font-family: $font-family;
+}
+
+.content-wrapper { // serves as content wrapper
+  width: em(16*45);
+  margin: em(16*6) auto;
+  // position: absolute;
+  //
+  // top: 50%;
+  // left: 50%;
+  //
+  // transform: translate(-50%, -50%);
+}
