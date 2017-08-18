@@ -21,7 +21,7 @@ services:
   phpfpm:
     build:
       context: './config'
-      dockerfile: './php.config'
+      dockerfile: './php.dockerfile'
     image: php:7.1-fpm-alpine-wordpress
     volumes:
       - "./html:/usr/share/nginx/html"
