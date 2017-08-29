@@ -9,4 +9,4 @@ RUN apt-get update -y && \
   git
 
 # Install (global) NPM packages/dependencies
-RUN yarn global add node-gyp node-sass
+RUN yarn global add node-gyp node-sass gulp-cli
